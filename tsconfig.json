@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "alwaysStrict": true,
+    "declaration": true,
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noEmit": false,
+    "outDir": "./dist",
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "esnext",
+  },
+  "exclude": ["node_modules"],
+  "include": ["src/**/*.ts"]
+}

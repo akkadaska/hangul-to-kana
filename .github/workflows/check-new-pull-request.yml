@@ -1,0 +1,31 @@
+name: Checks when a new pull request is created
+on:
+  pull_request
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '16.x'
+      - name: Install npm dependency
+        run: npm ci
+      - name: Run ESLint
+        run: npm run lint
+      - name: Run Jest
+        run: npm run test
+      - name: Run build test
+        run: npm run build
+      - name: Run Jest coverage
+        uses: Artiomtr/jest-coverage-report-action@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          test-script: npm run ci:test:coverage
+      - name: Perform score
+        run: npm run ci:score
+      - name: Push comment with score
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          path: score.txt
