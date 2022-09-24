@@ -1,0 +1,45 @@
+
+extends: 
+  - next/core-web-vitals
+  - eslint:recommended
+  - plugin:@typescript-eslint/recommended
+  - plugin:prettier/recommended
+parser: '@typescript-eslint/parser'
+plugins:
+  - '@typescript-eslint/eslint-plugin'
+rules:
+  '@typescript-eslint/naming-convention':
+    - error
+    -
+      selector: default
+      format: ["camelCase"]
+      leadingUnderscore: allow
+    -
+      selector: variable
+      format: ["camelCase", "UPPER_CASE", "PascalCase"]
+      leadingUnderscore: allow
+    - 
+      selector: parameter
+      format: ["camelCase", "UPPER_CASE", "PascalCase"]
+      leadingUnderscore: allow
+    -
+      selector: typeLike
+      format: ["PascalCase"]
+    -
+      selector: function
+      format: ["PascalCase", "camelCase"]
+  '@typescript-eslint/no-unused-vars':
+    - warn
+    - varsIgnorePattern: "^_"
+      argsIgnorePattern: "^_"
+      caughtErrorsIgnorePattern: "^_"
+      destructuredArrayIgnorePattern: "^_"
+  no-console:
+    - warn
+  eqeqeq:
+    - error
+  prettier/prettier:
+    - error
+  '@next/next/no-html-link-for-pages': 
+    - error
+    - renderer/pages/
