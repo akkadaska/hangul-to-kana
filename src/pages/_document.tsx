@@ -15,10 +15,7 @@ const MyDocument = () => {
           rel="stylesheet"
         />
       </Head>
-      <body
-        className="bg-slate-400"
-        style={{ fontFamily: "'Noto Sans KR', sans-serif" }}
-      >
+      <body style={{ fontFamily: "'Noto Sans KR', sans-serif" }}>
         <Main />
         <NextScript />
       </body>

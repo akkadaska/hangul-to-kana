@@ -1,13 +1,23 @@
 /** @type {import('next').NextConfig} */
 
-const urlPrefix = process.env.URL_PREFIX ? '/' + process.env.URL_PREFIX : '';
+// const isGithubActions = process.env.GITHUB_ACTIONS || false;
+//
+// let assetPrefix = undefined;
+// let basePath = undefined;
+//
+// if (isGithubActions) {
+//   // trim off `<owner>/`
+//   const repo = process.env.GITHUB_REPOSITORY.replace(/.*?// \//, '');
+//
+//   assetPrefix = `/${repo}/`;
+//   basePath = `/${repo}`;
+// }
 
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  assetPrefix: urlPrefix,
-  basePath: urlPrefix,
-  trailingSlash: true,
+  // assetPrefix: assetPrefix,
+  // basePath: basePath,
 };
 
 module.exports = nextConfig;

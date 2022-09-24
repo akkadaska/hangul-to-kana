@@ -28,8 +28,11 @@ jobs:
       - name: Export Next.js app
         run: npm run export
 
+      - name: Touch nojekyll
+        run: touch out/.nojekyll
+
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: JamesIves/github-pages-deploy-action@4.4.0 
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
           publish_dir: out
